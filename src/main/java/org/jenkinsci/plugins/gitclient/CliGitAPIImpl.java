@@ -2464,7 +2464,10 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
     /** {@inheritDoc} */
     public Map<String, ObjectId> getHeadRev(String url) throws GitException, InterruptedException {
         ArgumentListBuilder args = new ArgumentListBuilder("ls-remote");
-        args.add("-h");
+
+        // Some ugly test fix
+        // Please use only while the issue https://github.com/janinko/ghprb/issues/423 is not fixed !!!!
+        // args.add("-h");
         args.add(url);
 
         StandardCredentials cred = credentials.get(url);
